@@ -1,24 +1,17 @@
 # vue-movie-app
+<strong>소개서가 아닌 만드는 과정을 기록하는 용도로 사용하고 있습니다.</strong>
 
 ## Project setup
 ```
 npm install
 ```
+######22.01.10
+<p>
+Main slide 구현 완료
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- v-slot을 사용하여 class추가 방법(swiper 및 vue 공식문서 확인)
+- vue에서 제공하는 트랜지션이 있으나 커스터마이징하는데 기존대로 css가 편했다.
+- react는 하나의 파일에서 컴포넌트를 여러개 생성하고 그안에서 컴포넌트를 사용할 수 있는데, 아직 vue로 동일하게 할 수 있는지 못찾았다. 그래서... 하나의 탬플릿에 모든걸 때려 넣었다. 
+->구현하고, 정리필요하다. 물론 vuex를 이용하여 로직을 분산시켜야 할듯.
+</p>
+ 

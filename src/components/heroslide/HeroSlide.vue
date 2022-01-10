@@ -7,8 +7,34 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
-      <swiper-slide v-for="(item, index) in movieItems">
-        <img :src="image(item.backdrop_path)" />
+      <swiper-slide
+        v-for="item in movieItems"
+        :key="item"
+        v-slot="{ isActive }"
+      >
+        <div
+          class="hero-slide__item"
+          :class="isActive ? 'active' : ''"
+          :style="{ backgroundImage: `url(${image(item.backdrop_path)})` }"
+        >
+          <div class="hero-slide__item__content container">
+            <div class="hero-slide__item__content__info">
+              <h2 class="title">{{ item.title }}</h2>
+              <div class="overview">{{ item.overview }}</div>
+              <div className="btns">
+                <!-- <Button onClick={() => history.push('/movie/' + item.id)}>
+                            Watch now
+                        </Button>
+                        <OutlineButton onClick={setModalActive}>
+                            Watch trailer
+                        </OutlineButton>     -->
+              </div>
+            </div>
+            <div className="hero-slide__item__content__poster">
+              <img :src="w500Image(item.poster_path)" alt="" />
+            </div>
+          </div>
+        </div>
       </swiper-slide>
     </Swiper>
   </div>
@@ -35,6 +61,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  //swiper
   setup() {
     const onSwiper = swiper => {
       console.log(swiper);
@@ -47,6 +74,7 @@ export default {
       onSlideChange,
     };
   },
+  //movie data
   created: function () {
     const getMovie = async () => {
       const { data } = await axios.get(`
@@ -60,6 +88,9 @@ export default {
   methods: {
     image(image) {
       return apiConfig.originalImage(image);
+    },
+    w500Image(image) {
+      return apiConfig.w500Image(image);
     },
   },
 };
