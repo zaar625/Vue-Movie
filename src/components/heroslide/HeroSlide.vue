@@ -22,12 +22,12 @@
               <h2 class="title">{{ item.title }}</h2>
               <div class="overview">{{ item.overview }}</div>
               <div className="btns">
-                <!-- <Button onClick={() => history.push('/movie/' + item.id)}>
-                            Watch now
-                        </Button>
-                        <OutlineButton onClick={setModalActive}>
-                            Watch trailer
-                        </OutlineButton>     -->
+                <Button @click="ChangePath">
+                  <template v-slot:redButton> Wach now </template>
+                </Button>
+                <OutlineButton v-on:click="setModalActive(item.id)">
+                  <template v-slot:outlineButton>Watch trailer</template>
+                </OutlineButton>
               </div>
             </div>
             <div className="hero-slide__item__content__poster">
@@ -42,6 +42,8 @@
 
 <script>
 import './hero-slide.scss';
+import Button from '../button/Button.vue';
+import OutlineButton from '../button/OutlineButton.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Autoplay } from 'swiper';
 import axios from 'axios';
@@ -60,6 +62,8 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    Button,
+    OutlineButton,
   },
   //swiper
   setup() {
@@ -91,6 +95,15 @@ export default {
     },
     w500Image(image) {
       return apiConfig.w500Image(image);
+    },
+    ChangePath() {
+      this.$router.push('movie');
+    },
+    async setModalActive(item) {
+      const { data } = await axios.get(
+        `https://api.themoviedb.org/3/movie/${item}/videos?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko`,
+      );
+      console.log(data);
     },
   },
 };

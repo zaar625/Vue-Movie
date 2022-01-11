@@ -5,6 +5,12 @@ const routes = [
   {
     path: '/home',
     component: Home,
+    name: 'home',
+  },
+  {
+    path: '/movie',
+    component: Home,
+    name: 'movie',
   },
 ];
 
