@@ -5,7 +5,9 @@
       :style="{ backgroundImage: `url(${w500Image(item.poster_path)})` }"
     >
       <Button>
-        <i class="far fa-play-circle"></i>
+        <template v-slot:redButton>
+          <i class="fas fa-play"></i>
+        </template>
       </Button>
     </div>
     <h3>{{ item.title || item.name }}</h3>

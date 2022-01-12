@@ -49,10 +49,11 @@ export default {
     };
   },
   async created() {
-    const category = 'movie';
+    const category = 'tv';
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${category}/day?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko`,
+      `https://api.themoviedb.org/3/${category}/top_rated?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko&page=1`,
     );
+    console.log(data);
     console.log(data);
     this.trendingMovie.push(...data.results);
   },

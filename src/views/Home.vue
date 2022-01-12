@@ -21,6 +21,24 @@
         </div>
         <TopmovieList />
       </div>
+      <div className="section mb-3">
+        <div className="section__header mb-2">
+          <h2>Trending TV</h2>
+          <Link to="/tv">
+            <OutlineButton className="small">View more</OutlineButton>
+          </Link>
+        </div>
+        <TvList />
+      </div>
+      <div className="section mb-3">
+        <div className="section__header mb-2">
+          <h2>Rated TV</h2>
+          <Link to="/tv">
+            <OutlineButton className="small">View more</OutlineButton>
+          </Link>
+        </div>
+        <TopTv />
+      </div>
     </div>
   </div>
 </template>
@@ -30,12 +48,16 @@ import HeroSlide from '../components/heroslide/HeroSlide';
 import OutlineButton from '../components/button/OutlineButton.vue';
 import MovieList from '../components/movie-list/MovieList.vue';
 import TopmovieList from '../components/movie-list/TopmovieList.vue';
+import TvList from '../components/movie-list/TvList.vue';
+import TopTv from '../components/movie-list/TopTv.vue';
 export default {
   components: {
     HeroSlide,
     OutlineButton,
     MovieList,
     TopmovieList,
+    TvList,
+    TopTv,
   },
 };
 </script>
