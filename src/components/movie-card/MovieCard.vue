@@ -1,18 +1,21 @@
 <template>
-  <router-link :to="Link">
-    <div class="movie-card">
+  <div>
+    <div
+      class="movie-card"
+      :style="{ backgroundImage: `url(${w500Image(item.poster_path)})` }"
+    >
       <Button>
         <i class="far fa-play-circle"></i>
       </Button>
     </div>
     <h3>{{ item.title || item.name }}</h3>
-  </router-link>
+  </div>
 </template>
 
 <script>
 import './movie-card.scss';
 import Button from '../button/Button.vue';
-import apiConfig from '../../api/apiConfig';
+import { apiConfig } from '../../api/apiConfig';
 
 export default {
   props: ['item', 'category'],

@@ -1,13 +1,13 @@
 <template>
   <div class="movie-list">
     <Swiper
-      :slides-per-view="{ auto }"
+      :slides-per-view="1"
       :space-between="10"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
       <swiper-slide
-        v-for="trendingItem in trendingMovie"
+        v-for="trendingItem in topRatedMovies"
         v-bind:key="trendingItem"
       >
         <MovieCard :item="trendingItem" :category="category" />
@@ -17,16 +17,15 @@
 </template>
 
 <script>
-import './movie-list.scss';
 import axios from 'axios';
+import './movie-list.scss';
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/swiper.scss';
 import MovieCard from '../movie-card/MovieCard.vue';
 
 export default {
   data() {
     return {
-      trendingMovie: [],
+      topRatedMovies: [],
     };
   },
   components: {
@@ -50,10 +49,10 @@ export default {
   async created() {
     const category = 'movie';
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/${category}/day?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko`,
+      `https://api.themoviedb.org/3/${category}/top_rated?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko&page=1`,
     );
     console.log(data);
-    this.trendingMovie.push(...data.results);
+    this.topRatedMovies.push(...data.results);
   },
 };
 </script>
