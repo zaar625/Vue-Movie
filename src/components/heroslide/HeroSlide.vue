@@ -22,7 +22,7 @@
               <h2 class="title">{{ item.title }}</h2>
               <div class="overview">{{ item.overview }}</div>
               <div className="btns">
-                <Button @click="ChangePath">
+                <Button @click="ChangePath(item.id)">
                   <template v-slot:redButton> Wach now </template>
                 </Button>
                 <OutlineButton v-on:click="setModalActive(item.id)">
@@ -37,6 +37,11 @@
         </div>
       </swiper-slide>
     </Swiper>
+    <TrailerModal
+      v-for="item in movieItems"
+      :key="item"
+      v-bind:item="item"
+    ></TrailerModal>
   </div>
 </template>
 
@@ -44,6 +49,7 @@
 import './hero-slide.scss';
 import Button from '../button/Button.vue';
 import OutlineButton from '../button/OutlineButton.vue';
+import TrailerModal from '../modal/TrailerModal.vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Autoplay } from 'swiper';
 import axios from 'axios';
@@ -64,6 +70,7 @@ export default {
     SwiperSlide,
     Button,
     OutlineButton,
+    TrailerModal,
   },
   //swiper
   setup() {
@@ -96,14 +103,8 @@ export default {
     w500Image(image) {
       return apiConfig.w500Image(image);
     },
-    ChangePath() {
-      this.$router.push('movie');
-    },
-    async setModalActive(item) {
-      const { data } = await axios.get(
-        `https://api.themoviedb.org/3/movie/${item}/videos?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko`,
-      );
-      console.log(data);
+    ChangePath(item) {
+      this.$router.push('movie' + item);
     },
   },
 };
