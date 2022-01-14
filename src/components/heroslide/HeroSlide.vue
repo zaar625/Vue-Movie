@@ -106,6 +106,10 @@ export default {
     ChangePath(item) {
       this.$router.push('movie' + item);
     },
+    setModalActive(item) {
+      this.$store.dispatch('FETCH_VIDEO', item);
+      this.$store.state.isActive = true;
+    },
   },
 };
 </script>
