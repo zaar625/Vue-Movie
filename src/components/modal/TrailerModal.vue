@@ -8,7 +8,7 @@
         width="100%"
         height="500px"
         title="trailer"
-        :src="videoSrc"
+        :src="this.$store.state.Msrc"
       ></iframe>
       <div class="modal__content__close" @Click="closeModal()">
         <i class="fas fa-times"></i>
@@ -21,24 +21,15 @@
 import './modal.scss';
 
 export default {
+  //item = 오브젝트
   props: ['item'],
-  data() {
-    return {
-      videoSrc: '',
-    };
-  },
+
   methods: {
     closeModal() {
       this.$store.state.isActive = false;
-      this.videoSrc = '';
+      this.$store.state.Msrc = '';
       // onClose();
     },
-  },
-  created() {
-    console.log(this.$store.state.video.results[0].key);
-    const videSrc = `https://www.youtube.com/embed/${this.$store.state.video.results[0].key}`;
-    this.videoSrc = videSrc;
-    console.log(videSrc);
   },
 };
 </script>

@@ -6,6 +6,8 @@ export default createStore({
   state: {
     video: {},
     isActive: false,
+    Msrc: '',
+    movieDetail: {},
   },
   mutations,
   actions,

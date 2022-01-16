@@ -3,7 +3,7 @@
     <div class="header__wrap container">
       <div class="logo">
         <img :src="logo" />
-        <router-link to="/Home"> tmovie </router-link>
+        <router-link to="/"> tmovie </router-link>
       </div>
       <ul class="header__nav">
         <li><router-link to="/Home">Home</router-link></li>

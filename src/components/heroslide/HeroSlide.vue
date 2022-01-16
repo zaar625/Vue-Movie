@@ -22,9 +22,11 @@
               <h2 class="title">{{ item.title }}</h2>
               <div class="overview">{{ item.overview }}</div>
               <div className="btns">
-                <Button @click="ChangePath(item.id)">
-                  <template v-slot:redButton> Wach now </template>
-                </Button>
+                <router-link :to="`/movie/${item.id}`">
+                  <Button>
+                    <template v-slot:redButton> Wach now </template>
+                  </Button>
+                </router-link>
                 <OutlineButton v-on:click="setModalActive(item.id)">
                   <template v-slot:outlineButton>Watch trailer</template>
                 </OutlineButton>
@@ -93,6 +95,7 @@ export default {
       console.log(data);
       this.movieItems.push(...data.results.slice(1, 4));
       console.log(this.movieItems);
+      //
     };
     getMovie();
   },
@@ -102,9 +105,6 @@ export default {
     },
     w500Image(image) {
       return apiConfig.w500Image(image);
-    },
-    ChangePath(item) {
-      this.$router.push('movie' + item);
     },
     setModalActive(item) {
       this.$store.dispatch('FETCH_VIDEO', item);
