@@ -35,7 +35,7 @@
         <div class="section__header mb-2">
           <h2>Similar</h2>
         </div>
-        <!-- <Similar category="{category}" type="similar" id="{item.id}" /> -->
+        <Similar />
       </div>
     </div>
   </div>
@@ -47,12 +47,14 @@ import { getDetailMovie } from '../../api/api-function';
 import { apiConfig } from '../../api/apiConfig';
 import CastList from './CastList.vue';
 import VideoList from './VideoList.vue';
+import Similar from '../../components/movie-list/Similar.vue';
 import './detail.scss';
 
 export default {
   components: {
     CastList,
     VideoList,
+    Similar,
   },
   data() {
     return {
