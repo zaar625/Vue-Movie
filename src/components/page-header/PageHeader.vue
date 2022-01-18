@@ -1,7 +1,5 @@
 <template>
-  <div class="page-header" :style="pageheaderbg">
-    <h2>백그라운드</h2>
-  </div>
+  <div class="page-header" :style="pageheaderbg"></div>
 </template>
 
 <script>

@@ -46,7 +46,7 @@ export default {
     };
   },
   methods: {},
-  async mounted() {
+  async created() {
     const id = this.$route.params.id;
     const category = this.$route.name;
     const { data } = await getSimilar(id, category);

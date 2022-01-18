@@ -6,7 +6,7 @@
         <router-link to="/"> tmovie </router-link>
       </div>
       <ul class="header__nav">
-        <li><router-link to="/Home">Home</router-link></li>
+        <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/movie">Movies</router-link></li>
         <li><router-link to="/tv">Tv Series</router-link></li>
       </ul>

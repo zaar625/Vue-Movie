@@ -3,17 +3,19 @@
     <div class="section mb-3">
       <div class="movie-search">
         <input type="text" placeholder="Enter keyword" v-model="keyword" />
-        <Button
-          class="small"
-          @click="goToSearch"
-          @:keyup.enter="goToSearch"
-        ></Button>
+        <Button class="small" @click="goToSearch" @:keyup.enter="goToSearch"
+          ><template v-slot:redButton>Search</template></Button
+        >
       </div>
     </div>
     <div class="movie-grid">
-      <MovieCard v-for="list in pageList" v-bind:key="list"></MovieCard>
+      <MovieCard
+        v-for="list in pageList"
+        v-bind:key="list"
+        :item="list"
+      ></MovieCard>
     </div>
-    <div v-if="page < totalPage" className="movie-grid__loadmore">
+    <div v-if="page < totalPage" class="movie-grid__loadmore">
       <OutlineButton class="small" @click="loadMore">More</OutlineButton>
     </div>
   </div>
@@ -21,7 +23,16 @@
 
 <script>
 import { getSerchList } from '../../api/api-function';
+import Button from '../button/Button.vue';
+import OutlineButton from '../button/OutlineButton.vue';
+import MovieCard from '../movie-card/MovieCard.vue';
+import './movie-grid.scss';
 export default {
+  components: {
+    Button,
+    OutlineButton,
+    MovieCard,
+  },
   data() {
     return {
       keyword: '',
@@ -50,7 +61,7 @@ export default {
   async mounted() {
     const category = this.$route.name;
     const { data } = await getSerchList(category, this.page);
-    this.pageList = data;
+    this.pageList = data.results;
   },
 };
 </script>

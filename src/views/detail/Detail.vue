@@ -69,7 +69,7 @@ export default {
       return apiConfig.w500Image(image);
     },
   },
-  async mounted() {
+  async created() {
     console.log(this.$route);
     console.log(this.$route.params.id);
     const id = this.$route.params.id;

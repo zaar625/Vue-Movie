@@ -7,11 +7,8 @@
       @swiper="onSwiper"
       @slideChange="onSlideChange"
     >
-      <swiper-slide
-        v-for="trendingItem in trendingMovie"
-        v-bind:key="trendingItem"
-      >
-        <MovieCard :item="trendingItem" :category="category" />
+      <swiper-slide v-for="trendingTV in trendingTVs" v-bind:key="trendingTV">
+        <MovieCard :item="trendingTV" :category="category" />
       </swiper-slide>
     </Swiper>
   </div>
@@ -27,7 +24,8 @@ import MovieCard from '../movie-card/MovieCard.vue';
 export default {
   data() {
     return {
-      trendingMovie: [],
+      trendingTVs: [],
+      category: 'tv',
     };
   },
   components: {
@@ -49,13 +47,12 @@ export default {
     };
   },
   async created() {
-    const category = 'tv';
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${category}/top_rated?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko&page=1`,
+      `https://api.themoviedb.org/3/${this.category}/top_rated?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko&page=1`,
     );
     console.log(data);
     console.log(data);
-    this.trendingMovie.push(...data.results);
+    this.trendingTVs.push(...data.results);
   },
 };
 </script>

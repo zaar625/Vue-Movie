@@ -4,7 +4,9 @@
       class="movie-card"
       :style="{ backgroundImage: `url(${w500Image(item.poster_path)})` }"
     >
-      <Button>
+      <Button
+        @click="this.$router.push('/' + this.category + '/' + this.item.id)"
+      >
         <template v-slot:redButton>
           <i class="fas fa-play"></i>
         </template>
@@ -24,15 +26,14 @@ export default {
   components: {
     Button,
   },
-  computed: {
-    Link: function () {
-      return '/' + this.category + '/' + this.item.id;
-    },
-  },
+
   methods: {
     w500Image(image) {
       return apiConfig.w500Image(image);
     },
   },
+  // created() {
+  //   this.$router.go(this.$router.currentRoute);
+  // },
 };
 </script>
