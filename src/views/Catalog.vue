@@ -3,7 +3,7 @@
     <PageHeader></PageHeader>
     <div class="container">
       <div class="section mb-3">
-        <MovieGrid :category="this.$router.name" />
+        <MovieGrid :category="this.$route" />
       </div>
     </div>
   </div>

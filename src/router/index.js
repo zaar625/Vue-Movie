@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
 import Detail from '../views/detail/Detail.vue';
 import Catalog from '../views/Catalog.vue';
+// import MovieGrid from '../components/movie-grid/MovieGrid.vue';
 
 const routes = [
   {
@@ -10,9 +11,12 @@ const routes = [
     name: 'home',
   },
   {
-    path: '/tv/:id',
-    component: Detail,
-    name: 'tv',
+    path: '/movie',
+    component: Catalog,
+  },
+  {
+    path: '/tv',
+    component: Catalog,
   },
   {
     path: '/movie/:id',
@@ -20,9 +24,13 @@ const routes = [
     name: 'movie',
   },
   {
-    path: '/movie',
+    path: '/tv/:id',
+    component: Detail,
+    name: 'tv',
+  },
+  {
+    path: '/:category/search/:keyword',
     component: Catalog,
-    name: 'movie',
   },
 ];
 

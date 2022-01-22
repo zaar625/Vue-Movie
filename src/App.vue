@@ -2,6 +2,7 @@
   <div>
     <Header></Header>
     <router-view :key="$route.fullPath"></router-view>
+    <!-- :key="$route.fullPath" -->
     <Footer></Footer>
   </div>
 </template>

@@ -1,19 +1,17 @@
 <template>
-  <div>
+  <router-link :to="`/${this.category}/${this.item.id}`">
     <div
       class="movie-card"
       :style="{ backgroundImage: `url(${w500Image(item.poster_path)})` }"
     >
-      <Button
-        @click="this.$router.push('/' + this.category + '/' + this.item.id)"
-      >
+      <Button>
         <template v-slot:redButton>
           <i class="fas fa-play"></i>
         </template>
       </Button>
     </div>
     <h3>{{ item.title || item.name }}</h3>
-  </div>
+  </router-link>
 </template>
 
 <script>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <HeroSlide></HeroSlide>
-    <div className="container">
-      <div className="section mb-3">
-        <div className="section__header mb-2">
+    <div class="container">
+      <div class="section mb-3">
+        <div class="section__header mb-2">
           <h2>Trending Movies</h2>
           <OutlineButton class="small"
             ><template v-slot:outlineButton>Veiw more</template>
@@ -11,8 +11,8 @@
         </div>
         <MovieList />
       </div>
-      <div className="section mb-3">
-        <div className="section__header mb-2">
+      <div class="section mb-3">
+        <div class="section__header mb-2">
           <h2>Top Rated Movies</h2>
 
           <OutlineButton class="small"
@@ -21,20 +21,20 @@
         </div>
         <TopmovieList />
       </div>
-      <div className="section mb-3">
-        <div className="section__header mb-2">
+      <div class="section mb-3">
+        <div class="section__header mb-2">
           <h2>Trending TV</h2>
           <Link to="/tv">
-            <OutlineButton className="small">View more</OutlineButton>
+            <OutlineButton class="small">View more</OutlineButton>
           </Link>
         </div>
         <TvList />
       </div>
-      <div className="section mb-3">
-        <div className="section__header mb-2">
+      <div class="section mb-3">
+        <div class="section__header mb-2">
           <h2>Rated TV</h2>
           <Link to="/tv">
-            <OutlineButton className="small">View more</OutlineButton>
+            <OutlineButton class="small">View more</OutlineButton>
           </Link>
         </div>
         <TopTv />
