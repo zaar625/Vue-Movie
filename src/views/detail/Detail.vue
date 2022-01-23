@@ -2,17 +2,13 @@
   <div>
     <div
       class="banner"
-      :style="{
-        backgroundImage: `url(${image(this.movieDetail.backdrop_path)})`,
-      }"
+      :style="{ backgroundImage: `url(${image(movieDetail.backdrop_path)})` }"
     ></div>
     <div class="mb-3 movie-content container">
       <div class="movie-content__poster">
         <div
           class="movie-content__poster__img"
-          :style="{
-            backgroundImage: `url(${image(movieDetail.poster_path)})`,
-          }"
+          :style="{ backgroundImage: `url(${image(movieDetail.poster_path)})` }"
         ></div>
       </div>
       <div class="movie-content__info">
@@ -56,6 +52,15 @@ export default {
     VideoList,
     Similar,
   },
+  async created() {
+    console.log(this.$route);
+    console.log(this.$route.params.id);
+    const id = this.$route.params.id;
+    const category = this.$route.name;
+    const { data } = await getDetailMovie(id, category);
+    this.movieDetail = data;
+    console.log(this.movieDetail.backdrop_path);
+  },
   data() {
     return {
       movieDetail: {},
@@ -65,17 +70,6 @@ export default {
     image(image) {
       return apiConfig.originalImage(image);
     },
-    w500Image(image) {
-      return apiConfig.w500Image(image);
-    },
-  },
-  async created() {
-    console.log(this.$route);
-    console.log(this.$route.params.id);
-    const id = this.$route.params.id;
-    const category = this.$route.name;
-    const { data } = await getDetailMovie(id, category);
-    this.movieDetail = data;
   },
 };
 </script>

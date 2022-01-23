@@ -15,6 +15,7 @@
         v-for="list in pageList"
         v-bind:key="list"
         :item="list"
+        :category="this.category"
       ></MovieCard>
     </div>
     <div v-if="page < totalPage" class="movie-grid__loadmore">
@@ -50,11 +51,12 @@ export default {
     async goToSearch() {
       const { data } = await getSearchist(this.$route.path, this.keyword);
       console.log(data);
+      // this.$router.push(`/search/${this.keyword}`);
       // console.log(this.$route.name);
       // {page: 1, results: Array(11), total_pages: 1, total_results: 11}
-      this.pageList = data.results;
       this.keyword = '';
-      // this.$route.push(`/search/${this.keyword}`);
+      this.pageList = data.results;
+      this.totalPage = data.total_pages;
     },
     async loadMore() {
       const category = this.$route.path;

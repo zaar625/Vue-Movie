@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/${this.category}/${this.item.id}`">
+  <router-link :to="`${this.category}/${this.item.id}`">
     <div
       class="movie-card"
       :style="{ backgroundImage: `url(${w500Image(item.poster_path)})` }"

@@ -5,37 +5,44 @@
       <div class="section mb-3">
         <div class="section__header mb-2">
           <h2>Trending Movies</h2>
-          <OutlineButton class="small"
-            ><template v-slot:outlineButton>Veiw more</template>
-          </OutlineButton>
+          <router-link :to="`/movie`">
+            <OutlineButton class="small"
+              ><template v-slot:outlineButton>Veiw more</template>
+            </OutlineButton>
+          </router-link>
         </div>
         <MovieList />
       </div>
       <div class="section mb-3">
         <div class="section__header mb-2">
           <h2>Top Rated Movies</h2>
-
-          <OutlineButton class="small"
-            ><template v-slot:outlineButton>Veiw more</template>
-          </OutlineButton>
+          <router-link :to="`/movie`">
+            <OutlineButton class="small"
+              ><template v-slot:outlineButton>Veiw more</template>
+            </OutlineButton>
+          </router-link>
         </div>
         <TopmovieList />
       </div>
       <div class="section mb-3">
         <div class="section__header mb-2">
           <h2>Trending TV</h2>
-          <Link to="/tv">
-            <OutlineButton class="small">View more</OutlineButton>
-          </Link>
+          <router-link :to="`/tv`">
+            <OutlineButton class="small"
+              ><template v-slot:outlineButton>Veiw more</template>
+            </OutlineButton>
+          </router-link>
         </div>
         <TvList />
       </div>
       <div class="section mb-3">
         <div class="section__header mb-2">
           <h2>Rated TV</h2>
-          <Link to="/tv">
-            <OutlineButton class="small">View more</OutlineButton>
-          </Link>
+          <router-link :to="`/tv`">
+            <OutlineButton class="small"
+              ><template v-slot:outlineButton>Veiw more</template>
+            </OutlineButton>
+          </router-link>
         </div>
         <TopTv />
       </div>

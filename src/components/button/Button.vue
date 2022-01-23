@@ -1,5 +1,5 @@
 <template>
-  <button class="btn" :class="isActive ? 'active' : ''">
+  <button class="btn">
     <slot name="redButton"></slot>
   </button>
 </template>

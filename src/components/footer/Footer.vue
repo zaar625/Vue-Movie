@@ -4,7 +4,7 @@
       <div class="footer__content__logo">
         <div class="logo">
           <img :src="tmovie" alt="" />
-          <router-link to="/">tMovies</router-link>
+          <router-link to="/">Movies</router-link>
         </div>
       </div>
       <div class="footer__content__menus">
@@ -33,7 +33,7 @@
 <script>
 import './footer.scss';
 import footerBg from '../../assets/footer-bg.jpg';
-import tmovie from '../../assets/tmovie.png';
+import tmovie from '../../assets/vue.png';
 export default {
   data() {
     return {

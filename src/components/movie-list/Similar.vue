@@ -11,7 +11,7 @@
         v-for="similarItem in similarItems"
         v-bind:key="similarItem"
       >
-        <MovieCard :item="similarItem" :category="this.$route.name" />
+        <MovieCard :item="similarItem" :category="category" />
       </swiper-slide>
     </Swiper>
   </div>
@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       similarItems: [],
+      category: `/${this.$route.name}`,
     };
   },
   components: {

@@ -24,7 +24,7 @@
               <div className="btns">
                 <router-link :to="`/movie/${item.id}`">
                   <Button>
-                    <template v-slot:redButton> Wach now </template>
+                    <template v-slot:redButton> Watch now </template>
                   </Button>
                 </router-link>
                 <OutlineButton v-on:click="setModalActive(item.id)">

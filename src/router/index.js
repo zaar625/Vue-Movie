@@ -28,10 +28,6 @@ const routes = [
     component: Detail,
     name: 'tv',
   },
-  {
-    path: '/:category/search/:keyword',
-    component: Catalog,
-  },
 ];
 
 const router = createRouter({

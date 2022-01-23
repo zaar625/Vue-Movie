@@ -1,5 +1,5 @@
 <template>
-  <button class="btn btn-outline" :class="isActive ? 'active' : ''">
+  <button class="btn btn-outline">
     <slot name="outlineButton"></slot>
   </button>
 </template>

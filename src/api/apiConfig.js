@@ -1,7 +1,6 @@
 export const apiConfig = {
   baseUrl: 'https://api.themoviedb.org/3/',
   apiKey: 'af43ac72d70dd07b3747f0dc7b4a2680',
-  language: 'ko',
   originalImage: imgPath => `https://image.tmdb.org/t/p/original/${imgPath}`,
   w500Image: imgPath => `https://image.tmdb.org/t/p/w500/${imgPath}`,
 };

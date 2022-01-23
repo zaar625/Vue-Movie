@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       tvLists: [],
-      category: 'tv',
+      category: '/tv',
     };
   },
   components: {
@@ -48,7 +48,7 @@ export default {
   },
   async created() {
     const { data } = await axios.get(`
-        https://api.themoviedb.org/3/trending/${this.category}/day?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko`);
+        https://api.themoviedb.org/3/trending${this.category}/day?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko`);
     console.log(data);
     console.log(data);
     this.tvLists.push(...data.results);

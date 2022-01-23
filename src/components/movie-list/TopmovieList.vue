@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       trendingMovie: [],
-      category: 'movie',
+      category: '/movie',
     };
   },
   components: {
@@ -51,7 +51,7 @@ export default {
   },
   async created() {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/${this.category}/top_rated?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko&page=1`,
+      `https://api.themoviedb.org/3${this.category}/top_rated?api_key=af43ac72d70dd07b3747f0dc7b4a2680&language=ko&page=1`,
     );
     console.log(data);
     console.log(data);
