@@ -3,7 +3,7 @@
     <div class="header__wrap container">
       <div class="logo">
         <img :src="logo" />
-        <router-link to="/"> movie </router-link>
+        <router-link to="/"> Vue movies </router-link>
       </div>
       <ul class="header__nav">
         <li :class="{ active: this.$route.path === '/' }">

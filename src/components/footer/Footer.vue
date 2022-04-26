@@ -4,7 +4,7 @@
       <div class="footer__content__logo">
         <div class="logo">
           <img :src="tmovie" alt="" />
-          <router-link to="/">Movies</router-link>
+          <router-link to="/">Vue Movies</router-link>
         </div>
       </div>
       <div class="footer__content__menus">
